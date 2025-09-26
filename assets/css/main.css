@@ -1,0 +1,156 @@
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+
+.my-float {
+  margin-top: 16px;
+}
+.text-decoration-line-through {
+  background-color: red;
+  color: #fff !important;
+  padding: 5px;
+}
+.vision-section {
+  background-color: #25d366;
+  color: white;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.vision-section h2 {
+  font-size: 1.5rem;
+}
+
+.features-section {
+  padding: 50px 0;
+}
+
+.features-section .feature {
+  text-align: center;
+  padding: 20px;
+}
+
+.features-section .feature-icon {
+  font-size: 2rem;
+  color: #25d366;
+}
+.fromLeft,
+.fromRight {
+  opacity: 0;
+  transition: transform 1s, opacity 1s;
+}
+
+.fromLeft {
+  transform: translateX(-100%);
+}
+
+.fromRight {
+  transform: translateX(100%);
+}
+
+.in-view {
+  transform: translateX(0);
+  opacity: 1;
+}
+#spinner,
+#prodspinner,
+#reviewsSpinner,
+#careerspinner,
+#salesReportSpinner {
+  display: none;
+  margin-top: 10px;
+  text-align: center;
+  color: red;
+  font-size: 24px;
+}
+
+#prodspinner ::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top: 2px solid #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+#reviewsSpinner ::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top: 2px solid #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+#prodspinner ::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top: 2px solid #000;
+  border-radius: 50%;
+  animation: spin2 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hide-on-pdf {
+  display: none;
+}
+
+.bi-cedi::before {
+  content: "\20B5"; /* Unicode for Ghanaian Cedi symbol */
+}
+.nav-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+.navbar-vertical-nav {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.navbar-vertical-content {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+#itemContainer,
+:hover {
+  cursor: pointer;
+}
+.removeProduct :hover {
+  cursor: pointer;
+}
