@@ -55,7 +55,6 @@ async function getUserName(userid) {
       $("#cName").html(fullname);
       $("#cEmail").html(data.email);
       $("#cPhone").html(data.phonenumber);
-      $("#addressPhone").html(data.phonenumber);
     });
   } catch (error) {
     console.error("Error fetching customer: ", error);
@@ -118,7 +117,16 @@ async function populateOrdersTable() {
       $("#orderID").html("Order ID: #" + orders.orderId);
       let total = 0;
       let cost = 0;
-      loadAddresses(userId);
+      // Load delivery address from order document instead of separate collection
+      if (orders.deliveryAddress) {
+        $("#addressName").html(orders.deliveryAddress.name || "N/A");
+        $("#addressLoc").html(orders.deliveryAddress.address || "N/A");
+        $("#addressPhone").html(orders.deliveryAddress.phone || "N/A");
+        // If there's a city field in the HTML, update it with landmark
+        if ($("#addressCity").length) {
+          $("#addressCity").html(orders.deliveryAddress.landmark || "N/A");
+        }
+      }
       const createdAt = orders.createdAt;
       const date = createdAt.toDate();
       const formattedDate = date.toLocaleDateString(); // e.g., "MM/DD/YYYY"
@@ -211,6 +219,21 @@ async function updateOrderStatus(orderId, newStatus) {
       return;
     }
 
+    // Prompt for delivery branch
+    let deliveryBranch = prompt(
+      "Which branch will handle the delivery? (e.g., Accra Main, Kumasi, Takoradi)",
+      ""
+    );
+    if (deliveryBranch === null) {
+      // User cancelled prompt
+      return;
+    }
+    deliveryBranch = deliveryBranch.trim();
+    if (!deliveryBranch) {
+      alert("Please enter a valid branch name.");
+      return;
+    }
+
     const ordersRef = collection(db, "Orders");
     const q = query(ordersRef, where("orderId", "==", orderId));
     const querySnapshot = await getDocs(q);
@@ -223,9 +246,29 @@ async function updateOrderStatus(orderId, newStatus) {
       await updateDoc(orderDocRef, {
         status: newStatus,
         shipping: Number(shippingFee),
+        deliveryBranch: deliveryBranch,
       });
 
-      alert("Order status and delivery fee updated successfully");
+      alert(`Order status, delivery fee, and delivery branch updated successfully.\nBranch: ${deliveryBranch}\nFee: GHS ${shippingFee}`);
+      // Format phone number properly for SMS
+      let phoneNumber = orderDoc.data().deliveryAddress?.phone;
+      if (phoneNumber) {
+        // Remove leading zero if present and add country code
+        if (phoneNumber.startsWith('0')) {
+          phoneNumber = '233' + phoneNumber.substring(1);
+        } else if (!phoneNumber.startsWith('233')) {
+          phoneNumber = '233' + phoneNumber;
+        }
+      } else {
+        phoneNumber = "N/A";
+      }
+      
+      SendSMS(
+        orderId,
+        orderDoc.data().totalAmount,
+        phoneNumber
+      );
+      updateOrderStatusElement(newStatus);
     } else {
       alert("No order found with the given orderId");
     }
@@ -233,7 +276,61 @@ async function updateOrderStatus(orderId, newStatus) {
     alert("Error updating order status: " + error.message);
   }
 }
+async function SendSMS(orderId, total,destination) {
+  // Validate phone number before sending SMS
+  if (!destination || destination === "N/A" || destination.length < 10) {
+    console.error("❌ Invalid phone number for SMS:", destination);
+    alert("Cannot send SMS - Invalid phone number in delivery address");
+    return;
+  }
 
+  const baseURL = "https://adminapi.edugh.net/api/v1/sms/send";
+
+  const source = "Panacea";
+  const school_id = "29";
+  const adminPhone = "233542423472";
+  const apiKey = "jy4ExUFh31VEup8IGkhuCdxls212TIVch0QOUv6Yw2C1r";
+
+  // Compose your SMS message
+  const message = `Your Order #${orderId} of total GHS ${total} has been received successfully.A representative will get in touch with you.You can also call us on ${adminPhone} Thank you!`;
+
+  // Build query parameters
+  const params = new URLSearchParams({
+    message: message,
+    destination: destination,
+    source: source,
+    school_id: school_id,
+    api_key: apiKey,
+  });
+
+  const apiURL = `${baseURL}?${params.toString()}`;
+
+  try {
+    // Send GET request with parameters in URL
+    const response = await fetch(apiURL, { method: "GET" });
+
+    const text = await response.text();
+
+    if (!response.ok) {
+      console.error("❌ Failed to send SMS. Status:", response.status);
+      console.error("Response:", text);
+      return;
+    }
+
+    // Try parsing JSON if response is valid
+    let result;
+    try {
+      result = JSON.parse(text);
+    } catch {
+      console.log("ℹ️ Non-JSON response:", text);
+      return;
+    }
+
+    console.log(`✅ SMS sent successfully to ${destination}:`, result);
+  } catch (error) {
+    console.error("⚠️ Error sending SMS:", error);
+  }
+}
 function updateOrderStatusElement(status) {
   const orderStatusElement = document.getElementById("orderStatus");
 

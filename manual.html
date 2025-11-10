@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta content="Panacea Online Admin Manual" name="description" />
+  <meta content="admin, manual, user guide" name="keywords" />
+  <meta name="author" content="Panacea Online" />
+
+  <title>Panacea Online Admin - User Manual</title>
+
+  <!-- Favicon icon-->
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon/favicon.ico" />
+
+  <!-- Libs CSS -->
+  <link href="assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/libs/feather-webfont/dist/feather-icons.css" rel="stylesheet" />
+  <link href="assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet" />
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="assets/css/theme.min.css" />
+  
+  <!-- Custom CSS for manual -->
+  <style>
+    .manual-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .step-number {
+      background: #0d6efd;
+      color: white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .feature-card {
+      border: 1px solid #e3e6f0;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background: #f8f9fc;
+    }
+    .screenshot-placeholder {
+      background: #e9ecef;
+      border: 2px dashed #6c757d;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px 0;
+      border-radius: 8px;
+    }
+    .screenshot-actual {
+      height: 200px;
+      margin: 15px 0;
+      border-radius: 8px;
+      border: 1px solid #dee2e6;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .table-of-contents {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .toc-item {
+      padding: 5px 0;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .toc-item:last-child {
+      border-bottom: none;
+    }
+    .warning-box {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .tip-box {
+      background: #d1ecf1;
+      border: 1px solid #bee5eb;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .code-snippet {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 4px;
+      padding: 10px;
+      font-family: 'Courier New', monospace;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-glass">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="main.html">
+          <img src="assets/images/logos/pancea-logo.png" alt="Panacea" width="150" />
+        </a>
+        <div class="d-flex align-items-center">
+          <a href="main.html" class="btn btn-primary">
+            <i class="bi bi-arrow-left me-2"></i>Back to Dashboard
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content-wrapper">
+      <div class="container manual-content">
+        <!-- Header -->
+        <div class="row mb-8">
+          <div class="col-12">
+            <div class="text-center">
+              <h1 class="display-4 fw-bold text-primary mb-3">
+                <i class="bi bi-book me-3"></i>Panacea Online Admin Manual
+              </h1>
+              <p class="lead text-muted">Complete guide to using the Panacea Online Administration System</p>
+              <p class="text-muted">Version 1.0 | Last Updated: October 2025</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="table-of-contents">
+          <h3 class="fw-bold mb-3"><i class="bi bi-list-ul me-2"></i>Table of Contents</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="toc-item"><a href="#getting-started" class="text-decoration-none">1. Getting Started</a></div>
+              <div class="toc-item"><a href="#dashboard" class="text-decoration-none">2. Dashboard Overview</a></div>
+              <div class="toc-item"><a href="#products" class="text-decoration-none">3. Product Management</a></div>
+              <div class="toc-item"><a href="#add-product" class="text-decoration-none">3.1. Adding New Products</a></div>
+              <div class="toc-item"><a href="#update-product" class="text-decoration-none">3.2. Updating Products</a></div>
+              <div class="toc-item"><a href="#categories" class="text-decoration-none">3.3. Managing Categories</a></div>
+            </div>
+            <div class="col-md-6">
+              <div class="toc-item"><a href="#orders" class="text-decoration-none">4. Order Management</a></div>
+              <div class="toc-item"><a href="#pos" class="text-decoration-none">5. Point of Sale (POS)</a></div>
+              <div class="toc-item"><a href="#users" class="text-decoration-none">6. User Management</a></div>
+              <div class="toc-item"><a href="#reports" class="text-decoration-none">7. Reports & Analytics</a></div>
+              <div class="toc-item"><a href="#blog" class="text-decoration-none">8. Blog Management</a></div>
+              <div class="toc-item"><a href="#troubleshooting" class="text-decoration-none">9. Troubleshooting</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Getting Started -->
+        <section id="getting-started" class="mb-5">
+          <h2 class="fw-bold text-primary mb-4"><i class="bi bi-play-circle me-2"></i>1. Getting Started</h2>
+          
+          <div class="feature-card">
+            <h4>System Requirements</h4>
+            <ul>
+              <li>Modern web browser (Chrome, Firefox, Safari, Edge)</li>
+              <li>Stable internet connection</li>
+              <li>Administrator or authorized user credentials</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h4>Logging In</h4>
+            <div class="row">
+              <div class="col-md-8">
+                <p><span class="step-number">1</span>Navigate to the admin login page</p>
+                <p><span class="step-number">2</span>Enter your email address and password</p>
+                <p><span class="step-number">3</span>Click "Sign In" to access the dashboard</p>
+              </div>
+              <div class="col-md-4">
+                <div class="screenshot-actual" style="background-image: url('assets/images/login.png');" title="Login Screen">
+                </div>
+              </div>
+            </div>
+            
+            <div class="warning-box">
+              <i class="bi bi-exclamation-triangle text-warning me-2"></i>
+              <strong>Security Note:</strong> Always log out when finished and never share your credentials.
+            </div>
+          </div>
+        </section>
+
+        <!-- Dashboard Overview -->
+        <section id="dashboard" class="mb-5">
+          <h2 class="fw-bold text-primary mb-4"><i class="bi bi-speedometer2 me-2"></i>2. Dashboard Overview</h2>
+          
+          <div class="feature-card">
+            <h4>Main Navigation</h4>
+            <p>The left sidebar contains all main system functions:</p>
+            <ul>
+              <li><strong>Dashboard:</strong> Overview and statistics</li>
+              <li><strong>Sales:</strong> Online orders and POS transactions</li>
+              <li><strong>Products:</strong> Product catalog management</li>
+              <li><strong>Users:</strong> Customer and staff management</li>
+              <li><strong>Reports:</strong> Sales and inventory analytics</li>
+              <li><strong>Blog:</strong> Content management</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h4>Dashboard Widgets</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <ul>
+                  <li>Total sales overview</li>
+                  <li>Recent orders</li>
+                  <li>Low stock alerts</li>
+                  <li>Top selling products</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <div class="screenshot-actual" style="background-image: url('assets/images/dashboard.png');" title="Dashboard Overview">
+</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Product Management -->
+        <section id="products" class="mb-5">
+          <h2 class="fw-bold text-primary mb-4"><i class="bi bi-box-seam me-2"></i>3. Product Management</h2>
+          
+          <!-- Adding New Products -->
+          <div id="add-product" class="feature-card">
+            <h4><i class="bi bi-plus-circle me-2"></i>3.1. Adding New Products</h4>
+            
+            <p><span class="step-number">1</span><strong>Navigate to Products</strong></p>
+            <p>Click "Products" in the sidebar, then select "Add Product"</p>
+            
+            <p><span class="step-number">2</span><strong>Fill Product Information</strong></p>
+            <div class="row">
+              <div class="col-md-6">
+                <ul>
+                  <li><strong>Product Name:</strong> Enter descriptive product name</li>
+                  <li><strong>Category:</strong> Select appropriate category</li>
+                  <li><strong>Product Code:</strong> Auto-generated unique identifier</li>
+                  <li><strong>Weight & Unit:</strong> Product specifications</li>
+                  <li><strong>Brand & Manufacturer:</strong> Product origin details</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                          <div class="screenshot-actual" style="background-image: url('assets/images/newprod.png');" title="Dashboard Overview">
+</div>
+              </div>
+            </div>
+
+            <p><span class="step-number">3</span><strong>Set Pricing</strong></p>
+            <ul>
+              <li><strong>Regular Price:</strong> Standard selling price</li>
+              <li><strong>Sale Price:</strong> Discounted price (optional)</li>
+            </ul>
+
+            <p><span class="step-number">4</span><strong>Upload Images</strong></p>
+            <ul>
+              <li>Main product image (required)</li>
+              <li>Additional images (up to 3)</li>
+              <li>Supported formats: JPG, PNG, GIF</li>
+            </ul>
+
+            <p><span class="step-number">5</span><strong>Product Description</strong></p>
+            <p>Use the rich text editor to add detailed product description with formatting</p>
+
+            <p><span class="step-number">6</span><strong>Inventory Settings</strong></p>
+            <ul>
+              <li><strong>Current Stock:</strong> Available quantity</li>
+              <li><strong>Stock Status:</strong> In stock/Out of stock</li>
+              <li><strong>Expiry Date:</strong> For perishable items</li>
+            </ul>
+
+            <p><span class="step-number">7</span><strong>Product Status</strong></p>
+            <ul>
+              <li><strong>Active:</strong> Product visible to customers</li>
+              <li><strong>Inactive:</strong> Product hidden from store</li>
+              <li><strong>Featured:</strong> Highlight on homepage</li>
+            </ul>
+
+            <div class="tip-box">
+              <i class="bi bi-lightbulb text-info me-2"></i>
+              <strong>Tip:</strong> For prescription medicines, you can skip image upload - a placeholder will be used automatically.
+            </div>
+          </div>
+
+          <!-- Updating Products -->
+          <div id="update-product" class="feature-card">
+            <h4><i class="bi bi-pencil-square me-2"></i>3.2. Updating Products</h4>
+            
+            <p><span class="step-number">1</span><strong>Find the Product</strong></p>
+            <ul>
+              <li>Go to "Products" → "Products List"</li>
+              <li>Use search bar to find specific products</li>
+              <li>Navigate through pages using pagination</li>
+            </ul>
+
+            <p><span class="step-number">2</span><strong>Edit Product</strong></p>
+            <ul>
+              <li>Click the three-dot menu next to product</li>
+              <li>Select "Edit" from dropdown</li>
+              <li>Product form will pre-populate with existing data</li>
+            </ul>
+
+            <p><span class="step-number">3</span><strong>Make Changes</strong></p>
+            <ul>
+              <li>Update any product information as needed</li>
+              <li>Change images if required</li>
+              <li>Adjust stock quantities</li>
+              <li>Modify pricing or descriptions</li>
+            </ul>
+
+            <p><span class="step-number">4</span><strong>Save Changes</strong></p>
+            <ul>
+              <li>Click "Update Product" button</li>
+              <li>System will show confirmation message</li>
+              <li>You'll be redirected back to the products list</li>
+            </ul>
+
+            <div class="tip-box">
+              <i class="bi bi-lightbulb text-info me-2"></i>
+              <strong>Smart Navigation:</strong> After updating, you'll return to the same page you were on before editing.
+            </div>
+          </div>
+
+          <!-- Managing Categories -->
+          <div id="categories" class="feature-card">
+            <h4><i class="bi bi-tags me-2"></i>3.3. Managing Categories</h4>
+            
+            <p><span class="step-number">1</span><strong>View Categories</strong></p>
+            <p>Navigate to "Products" → "Category List" to see all product categories</p>
+
+            <p><span class="step-number">2</span><strong>Add New Category</strong></p>
+            <ul>
+              <li>Click "Products" → "Add New Category"</li>
+              <li>Enter category name and description</li>
+              <li>Upload category image (optional)</li>
+              <li>Set category status (active/inactive)</li>
+            </ul>
+
+            <p><span class="step-number">3</span><strong>Edit Categories</strong></p>
+            <ul>
+              <li>Find category in the list</li>
+              <li>Click edit button</li>
+              <li>Update information as needed</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Order Management -->
+        <section id="orders" class="mb-5">
+          <h2 class="fw-bold text-primary mb-4"><i class="bi bi-cart me-2"></i>4. Order Management</h2>
+          
+          <div class="feature-card">
+            <h4>Viewing Orders</h4>
+            <p><span class="step-number">1</span>Navigate to "Sales" → "Online Sales"</p>
+            <p><span class="step-number">2</span>Orders are displayed with the following information:</p>
+            <ul>
+              <li>Order ID and date</li>
+              <li>Customer details</li>
+              <li>Order items and quantities</li>
+              <li>Total amount</li>
+              <li>Order status</li>
+              <li>Payment status</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h4>Processing Orders</h4>
+            <p><span class="step-number">1</span>Click on an order to view details</p>
+            <p><span class="step-number">2</span>Update order status:</p>
+            <ul>
+              <li><strong>Pending:</strong> New order awaiting processing</li>
+              <li><strong>Processing:</strong> Order being prepared</li>
+              <li><strong>Shipped:</strong> Order dispatched</li>
+              <li><strong>Delivered:</strong> Order completed</li>
+              <li><strong>Cancelled:</strong> Order cancelled</li>
+            </ul>
+            <p><span class="step-number">3</span>Add tracking information if applicable</p>
+            <p><span class="step-number">4</span>Save changes to notify customer</p>
+          </div>
+
+          <div class="feature-card">
+            <h4>Order Filters</h4>
+            <ul>
+              <li>Filter by date range</li>
+              <li>Filter by order status</li>
+              <li>Filter by payment status</li>
+              <li>Search by customer name or order ID</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Point of Sale -->
+        <section id="pos" class="mb-5">
+          <h2 class="fw-bold text-primary mb-4"><i class="bi bi-calculator me-2"></i>5. Point of Sale (POS)</h2>
+          
+          <div class="feature-card">
+            <h4>Using the POS System</h4>
+            <p><span class="step-number">1</span>Navigate to "Sales" → "POS"</p>
+            <p><span class="step-number">2</span><strong>Add Products to Cart:</strong></p>
+            <ul>
+              <li>Search for products by name or code</li>
+              <li>Click on product to add to cart</li>
+              <li>Adjust quantities as needed</li>
+              <li>Remove items if necessary</li>
+            </ul>
+            
+            <p><span class="step-number">3</span><strong>Customer Information:</strong></p>
+            <ul>
+              <li>Add customer details (optional)</li>
+              <li>Apply discounts or promotions</li>
+              <li>Add special notes</li>
+            </ul>
+
+            <p><span class="step-number">4</span><strong>Process Payment:</strong></p>
+            <ul>
+              <li>Review order total</li>
+              <li>Select payment method (cash, card, mobile money)</li>
+              <li>Enter amount received</li>
+              <li>Calculate change if applicable</li>
+              <li>Complete transaction</li>
+            </ul>
+
+            <p><span class="step-number">5</span><strong>Print Receipt:</strong></p>
+            <ul>
+              <li>Generate receipt for customer</li>
+              <li>Print or email receipt</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- User Management -->
+        <section id="users" class="mb-5">
+          <h2 class="fw-bold text-primary mb-4"><i class="bi bi-people me-2"></i>6. User Management</h2>
+          
+          <div class="feature-card">
+            <h4>Managing System Users</h4>
+            <p><span class="step-number">1</span>Navigate to "Users" → "User List"</p>
+            <p><span class="step-number">2</span><strong>Add New Users:</strong></p>
+            <ul>
+              <li>Click "Add New User"</li>
+              <li>Enter user details (name, email, phone)</li>
+              <li>Assign user role (Admin, Updater, Viewer)</li>
+              <li>Set password and access permissions</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h4>User Roles</h4>
+            <ul>
+              <li><strong>Admin:</strong> Full system access and user management</li>
+              <li><strong>Updater:</strong> Can add/edit products, process orders</li>
+              <li><strong>Viewer:</strong> Read-only access to reports and data</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h4>Role Management</h4>
+            <p>Navigate to "Users" → "Role List" to:</p>
+            <ul>
+              <li>View all system roles</li>
+              <li>Modify role permissions</li>
+              <li>Create custom roles</li>
+              <li>Assign users to roles</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Reports -->
+        <section id="reports" class="mb-5">
+          <h2 class="fw-bold text-primary mb-4"><i class="bi bi-bar-chart me-2"></i>7. Reports & Analytics</h2>
+          
+          <div class="feature-card">
+            <h4>Available Reports</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <ul>
+                  <li><strong>Sales Report:</strong> Revenue and transaction analysis</li>
+                  <li><strong>Stock Report:</strong> Inventory levels and movement</li>
+                  <li><strong>Redundant Products:</strong> Slow-moving inventory</li>
+                  <li><strong>Discount Report:</strong> Promotional sales analysis</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul>
+                  <li><strong>Expired Products:</strong> Items past expiry date</li>
+                  <li><strong>Best Selling Products:</strong> Top performers</li>
+                  <li><strong>Sales Return Report:</strong> Return analysis</li>
+                  <li><strong>Stock History:</strong> Inventory changes over time</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>Generating Reports</h4>
+            <p><span class="step-number">1</span>Navigate to "Reports" section</p>
+            <p><span class="step-number">2</span>Select desired report type</p>
+            <p><span class="step-number">3</span>Set date range and filters</p>
+            <p><span class="step-number">4</span>Click "Generate Report"</p>
+            <p><span class="step-number">5</span>Export to PDF or Excel if needed</p>
+          </div>
+        </section>
+
+        <!-- Blog Management -->
+        <section id="blog" class="mb-5">
+          <h2 class="fw-bold text-primary mb-4"><i class="bi bi-newspaper me-2"></i>8. Blog Management</h2>
+          
+          <div class="feature-card">
+            <h4>Managing Blog Content</h4>
+            <p><span class="step-number">1</span>Navigate to "Blog" in the sidebar</p>
+            <p><span class="step-number">2</span><strong>Create New Posts:</strong></p>
+            <ul>
+              <li>Click "Add New Post"</li>
+              <li>Enter post title and content</li>
+              <li>Add featured image</li>
+              <li>Set categories and tags</li>
+              <li>Schedule or publish immediately</li>
+            </ul>
+            
+            <p><span class="step-number">3</span><strong>Edit Existing Posts:</strong></p>
+            <ul>
+              <li>Find post in blog list</li>
+              <li>Click edit button</li>
+              <li>Make necessary changes</li>
+              <li>Update or republish</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section id="troubleshooting" class="mb-5">
+          <h2 class="fw-bold text-primary mb-4"><i class="bi bi-tools me-2"></i>9. Troubleshooting</h2>
+          
+          <div class="feature-card">
+            <h4>Common Issues and Solutions</h4>
+            
+            <div class="mb-4">
+              <h5><i class="bi bi-question-circle me-2"></i>Cannot upload product images</h5>
+              <ul>
+                <li>Check file format (JPG, PNG, GIF only)</li>
+                <li>Ensure file size is under 5MB</li>
+                <li>Try a different image file</li>
+                <li>Check internet connection</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h5><i class="bi bi-question-circle me-2"></i>Product not appearing in store</h5>
+              <ul>
+                <li>Verify product status is set to "Active"</li>
+                <li>Check if product has stock quantity</li>
+                <li>Ensure category is active</li>
+                <li>Clear browser cache</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h5><i class="bi bi-question-circle me-2"></i>Reports not generating</h5>
+              <ul>
+                <li>Check date range is valid</li>
+                <li>Ensure there's data for selected period</li>
+                <li>Try refreshing the page</li>
+                <li>Contact system administrator</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h5><i class="bi bi-question-circle me-2"></i>Login issues</h5>
+              <ul>
+                <li>Verify email and password are correct</li>
+                <li>Check if account is active</li>
+                <li>Use password reset if needed</li>
+                <li>Contact administrator for account issues</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>Getting Help</h4>
+            <p>If you encounter issues not covered in this manual:</p>
+            <ul>
+              <li>Contact your system administrator</li>
+              <li>Check system logs for error messages</li>
+              <li>Document the steps that led to the issue</li>
+              <li>Include screenshots if possible</li>
+            </ul>
+          </div>
+
+          <div class="warning-box">
+            <i class="bi bi-exclamation-triangle text-warning me-2"></i>
+            <strong>Important:</strong> Always backup your data regularly and keep your login credentials secure.
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section id="best-practices" class="mb-5">
+          <h2 class="fw-bold text-primary mb-4"><i class="bi bi-award me-2"></i>Best Practices</h2>
+          
+          <div class="feature-card">
+            <h4>Product Management Tips</h4>
+            <ul>
+              <li>Use clear, descriptive product names</li>
+              <li>Upload high-quality product images</li>
+              <li>Write detailed product descriptions</li>
+              <li>Keep inventory levels accurate</li>
+              <li>Regularly review and update pricing</li>
+              <li>Set appropriate expiry dates</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h4>Order Processing Guidelines</h4>
+            <ul>
+              <li>Process orders promptly</li>
+              <li>Update order status regularly</li>
+              <li>Communicate with customers about delays</li>
+              <li>Verify customer information before shipping</li>
+              <li>Keep tracking information updated</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <h4>System Security</h4>
+            <ul>
+              <li>Use strong passwords</li>
+              <li>Log out when finished</li>
+              <li>Don't share login credentials</li>
+              <li>Report suspicious activity</li>
+              <li>Keep the system updated</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-4 border-top">
+          <p class="text-muted mb-0">
+            © 2025 Panacea Online. All rights reserved. | 
+            <a href="main.html" class="text-decoration-none">Return to Dashboard</a>
+          </p>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <!-- Libs JS -->
+  <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/libs/simplebar/dist/simplebar.min.js"></script>
+  <script src="assets/js/theme.min.js"></script>
+
+  <!-- Smooth Scrolling for TOC -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Highlight current section in TOC
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.table-of-contents a');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop <= 100) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('fw-bold');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('fw-bold');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -225,20 +225,20 @@
                   aria-expanded="false" aria-controls="navSales">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-cart"></i></span>
-                    <span class="nav-link-text">Sales</span>
+                    <span class="nav-link-text">Orders</span>
                   </div>
                 </a>
                 <div id="navSales" class="collapse" data-bs-parent="#sideNavbar">
                   <ul class="nav flex-column">
                     <!-- Nav item -->
                     <li class="nav-item">
-                      <a class="nav-link" href="order-list.html">Online Sales</a>
+                      <a class="nav-link" href="order-list.html">Orders list</a>
                     </li>
                     <!-- Nav item -->
-                    <li class="nav-item">
+                    <li class="nav-item" hidden>
                       <a class="nav-link" href="pos.html">POS</a>
                     </li>
-                    <li class="nav-item" id="permissionReturns">
+                    <li class="nav-item" id="permissionReturns" hidden>
                       <a class="nav-link" href="salesreturn.html">Sales return(Refund)</a>
                     </li>
                   </ul>
@@ -616,6 +616,8 @@
                   <h1>Welcome back! Panacea Online</h1>
                   <p>Use this Dashboard to make admin changes</p>
                   <a href="newProd.html" class="btn btn-primary" id="addNewProdBtn">Create Product</a>
+                  <a href="manual.html" class="btn btn-primary" id="viewManualBtn">View Manual</a>
+
                 </div>
               </div>
             </div>
