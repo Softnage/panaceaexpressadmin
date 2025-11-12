@@ -22,18 +22,23 @@ onAuthStateChanged(auth, async (user) => {
      if(userrole == "Sales Personnel")
      {
         POSPermissions();
-    
-        document.getElementById('navOverlay').style.display = 'none';
-        document.getElementById('navOverlayMobile').style.display = 'none';
+        const navOverlay = document.getElementById('navOverlay');
+        const navOverlayMobile = document.getElementById('navOverlayMobile');
+        if(navOverlay) navOverlay.style.display = 'none';
+        if(navOverlayMobile) navOverlayMobile.style.display = 'none';
      }else if(userrole =="Updater")
      {
         UpdaterPermissions();
-        document.getElementById('navOverlay').style.display = 'none';
-        document.getElementById('navOverlayMobile').style.display = 'none';
+        const navOverlay = document.getElementById('navOverlay');
+        const navOverlayMobile = document.getElementById('navOverlayMobile');
+        if(navOverlay) navOverlay.style.display = 'none';
+        if(navOverlayMobile) navOverlayMobile.style.display = 'none';
      }else{
         //Admin full previlages
-        document.getElementById('navOverlay').style.display = 'none';
-        document.getElementById('navOverlayMobile').style.display = 'none';
+        const navOverlay = document.getElementById('navOverlay');
+        const navOverlayMobile = document.getElementById('navOverlayMobile');
+        if(navOverlay) navOverlay.style.display = 'none';
+        if(navOverlayMobile) navOverlayMobile.style.display = 'none';
      }
     } else {
       // User is signed out
@@ -52,8 +57,13 @@ onAuthStateChanged(auth, async (user) => {
       querySnapshot.forEach((doc) => {
         const data = doc.data();
         userrole = data.role;
-        $("#profileEmail").html(data.email);
-        $("#profileUserName").html(data.fullName);
+        
+        // Use vanilla JavaScript instead of jQuery for compatibility
+        const profileEmail = document.getElementById("profileEmail");
+        const profileUserName = document.getElementById("profileUserName");
+        
+        if (profileEmail) profileEmail.innerHTML = data.email;
+        if (profileUserName) profileUserName.innerHTML = data.fullName;
       });
     } catch (error) {
       console.error("Error fetching customer: ", error);
@@ -62,44 +72,59 @@ onAuthStateChanged(auth, async (user) => {
     return userrole;
   }
 
+  // Helper functions to replace jQuery
+  function hideElementsByClass(className) {
+    const elements = document.querySelectorAll('.' + className);
+    elements.forEach(element => element.style.display = 'none');
+  }
+  
+  function hideElementById(id) {
+    const element = document.getElementById(id);
+    if (element) element.style.display = 'none';
+  }
+
   function UpdaterPermissions()
   {
-    $(".permissionSales").hide();
-    $(".permissionAddApp").hide();
-    $(".permissionAddApp2").hide();
-    $(".permissionUsers").hide();
-    $(".permissionReports").hide();
-    $(".permissionBlog").hide();
-    $(".permissionCareers").hide();
-   $("#earnings").hide();
-  $(".revenue").hide();
-   $(".salesoverview").hide();
-    $(".orders").hide();
+    hideElementsByClass("permissionSales");
+    hideElementsByClass("permissionAddApp");
+    hideElementsByClass("permissionAddApp2");
+    hideElementsByClass("permissionUsers");
+    hideElementsByClass("permissionReports");
+    hideElementsByClass("permissionBlog");
+    hideElementsByClass("permissionCareers");
+    hideElementById("earnings");
+    hideElementsByClass("revenue");
+    hideElementsByClass("salesoverview");
+    hideElementsByClass("orders");
   }
+  
   function POSPermissions()
   {
-    $(".earnings").hide();
-    $(".revenue").hide();
-    $(".permissionProducts").hide();
-    $(".permissionAddApp").hide();
-    $(".permissionAddApp2").hide();
-    $(".permissionUsers").hide();
-    $(".permissionReports").hide();
-    $(".permissionBlog").hide();
-    $(".permissionCareers").hide();
-      $("#earnings").hide();
-      $("#permissionReturns").hide();
-      $(".revenue").hide();
-      $(".salesoverview").hide();
-      $(".addNewProdBtn").hide();
-     
+    hideElementsByClass("earnings");
+    hideElementsByClass("revenue");
+    hideElementsByClass("permissionProducts");
+    hideElementsByClass("permissionAddApp");
+    hideElementsByClass("permissionAddApp2");
+    hideElementsByClass("permissionUsers");
+    hideElementsByClass("permissionReports");
+    hideElementsByClass("permissionBlog");
+    hideElementsByClass("permissionCareers");
+    hideElementById("earnings");
+    hideElementById("permissionReturns");
+    hideElementsByClass("revenue");
+    hideElementsByClass("salesoverview");
+    hideElementsByClass("addNewProdBtn");
   }
-  $("#signOut").on("click", function() {
-    const auth = getAuth();
-    signOut(auth).then(() => {
-      window.location.href = "index.html";
-    }).catch((error) => {
-      console.error("Error fetching customer: ", error);
-      alert("Error fetching customer: " + error.message);
+
+  // Sign out functionality
+  const signOutBtn = document.getElementById("signOut");
+  if (signOutBtn) {
+    signOutBtn.addEventListener("click", function() {
+      signOut(auth).then(() => {
+        window.location.href = "index.html";
+      }).catch((error) => {
+        console.error("Error signing out: ", error);
+        alert("Error signing out: " + error.message);
+      });
     });
-   });
+  }

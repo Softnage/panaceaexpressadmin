@@ -14,6 +14,34 @@
   <link href="assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet" />
   <!-- Theme CSS -->
   <link rel="stylesheet" href="assets/css/theme.min.css" />
+  <style>
+    .password-field {
+      position: relative;
+    }
+    
+    .password-field span {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      z-index: 10;
+    }
+    
+    .password-field span i {
+      font-size: 16px;
+      color: #6c757d;
+      transition: color 0.2s ease;
+    }
+    
+    .password-field span:hover i {
+      color: #495057;
+    }
+    
+    .password-field input {
+      padding-right: 40px;
+    }
+  </style>
   <title>Login</title>
 </head>
 
@@ -52,13 +80,11 @@
                   <!-- input -->
                   <div class="password-field position-relative">
                     <label for="formSigninPassword" class="form-label visually-hidden">Password</label>
-                    <div class="password-field position-relative">
-                      <input type="password" class="form-control fakePassword" id="formSigninPassword"
-                        placeholder="*****" required />
-                      <span><i class="bi bi-eye-slash passwordToggler"></i></span>
-                      <div class="invalid-feedback">
-                        Please enter password.
-                      </div>
+                    <input type="password" class="form-control fakePassword" id="formSigninPassword"
+                      placeholder="*****" required />
+                    <span><i class="bi bi-eye-slash passwordToggler"></i></span>
+                    <div class="invalid-feedback">
+                      Please enter password.
                     </div>
                   </div>
                 </div>
@@ -89,6 +115,7 @@
     </section>
   </main>
   <script src="assets/js/vendors/jquery.min.js"></script>
+  <script src="assets/js/vendors/password.js"></script>
   <script type="module" src="assets/js/libs/app.js"></script>
   <script type="module" src="assets/js/libs/login.js"></script>
   <script type="module" src="assets/js/libs/roles.js"></script>

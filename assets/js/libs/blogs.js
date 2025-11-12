@@ -131,19 +131,26 @@ async function AddCarrer()
     
   }
 }
-$("#addBtn").click(function(){
+// Event listeners using vanilla JavaScript instead of jQuery
+const addBtn = document.getElementById("addBtn");
+if (addBtn) {
+  addBtn.addEventListener("click", function(){
     onAuthStateChanged(auth, (user) => {
-        if (user) {
-         AddBlog(user.uid)
-          // ...
-        } else {
-            console.log("Not Logged In");
-        }
-      });
-})
-$("#careerAddBtn").click(function(){
- AddCarrer();
-});
+      if (user) {
+        AddBlog(user.uid);
+      } else {
+        console.log("Not Logged In");
+      }
+    });
+  });
+}
+
+const careerAddBtn = document.getElementById("careerAddBtn");
+if (careerAddBtn) {
+  careerAddBtn.addEventListener("click", function(){
+    AddCarrer();
+  });
+}
 
 // Blog Management Functions
 let currentEditingBlogId = null;

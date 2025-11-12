@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,21 +17,32 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const currentUser = auth.currentUser;
-if (currentUser) {
-    window.location.href = "main.html";
+
+// Check authentication state properly
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("Current user:", user.uid);
+    // Only redirect if we're on the login/register page
+    if (window.location.pathname.includes('NewUser.html') || window.location.pathname.includes('index.html')) {
+      // window.location.href = "main.html"; // Commented out to allow access to user management
+    }
   } else {
-    // No user is signed in.
-    
+    console.log("No user signed in");
   }
-  console.log("Cuurent "+currentUser);
-// Get form elements
+});
+
+// Get form elements - check if they exist first
 const RegisterForm = document.getElementById("RegisterForm");
 const formUserfullname = document.getElementById("formUserfullname");
 const formUserPhone = document.getElementById("formUserPhone");
 const formUserEmail = document.getElementById("formUserEmail");
 const formUserPassword = document.getElementById("formUserPassword");
 const formUserrole = document.getElementById("userRole");
+
+// Only attach event listeners if the form exists
+if (RegisterForm) {
+  RegisterForm.addEventListener("submit", createAccountAndSaveDetails);
+}
 
 // Function to validate email
 function isEmailValid(email) {
@@ -42,6 +53,12 @@ function isEmailValid(email) {
 // Function to create an account and save user details in Firestore
 async function createAccountAndSaveDetails(event) {
   event.preventDefault(); // Prevent the form from submitting the traditional way
+
+  // Check if all form elements exist
+  if (!formUserfullname || !formUserPhone || !formUserEmail || !formUserPassword || !formUserrole) {
+    console.error("Form elements not found");
+    return;
+  }
 
   const fullName = formUserfullname.value;
   const phone = formUserPhone.value;
@@ -79,6 +96,3 @@ async function createAccountAndSaveDetails(event) {
     alert("Error: " + error.message);
   }
 }
-
-// Add event listener to the form
-RegisterForm.addEventListener('submit', createAccountAndSaveDetails);

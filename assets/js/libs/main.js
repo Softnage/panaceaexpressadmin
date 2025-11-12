@@ -17,15 +17,26 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
       const uid = user.uid;
     console.log("Signed In");
-    GetTotalOrders();
-    GetTotalCustomers();
     
-getTotalSales().then((totalSales) => {
-  $("#totalSales").html("GHS"+ FormatTotal(totalSales) );
-  $("#incomeTotal2").html("GHS"+ FormatTotal(totalSales) );
-}).catch((error) => {
-  console.error('Failed to get total sales:', error);
-});
+    // Only run dashboard functions if dashboard elements exist
+    const totalSalesElement = document.getElementById('totalSales') || document.querySelector('#totalSales');
+    if (totalSalesElement || (typeof $ !== 'undefined' && $("#totalSales").length > 0)) {
+      GetTotalOrders();
+      GetTotalCustomers();
+      
+      getTotalSales().then((totalSales) => {
+        if (typeof $ !== 'undefined') {
+          if ($("#totalSales").length > 0) {
+            $("#totalSales").html("GHS"+ FormatTotal(totalSales));
+          }
+          if ($("#incomeTotal2").length > 0) {
+            $("#incomeTotal2").html("GHS"+ FormatTotal(totalSales));
+          }
+        }
+      }).catch((error) => {
+        console.error('Failed to get total sales:', error);
+      });
+    }
   
     } else {
       // User is signed out
@@ -49,8 +60,15 @@ getTotalSales().then((totalSales) => {
   async function GetTotalOrders() {
     try {
       const count = await getOrdersCount();
-      document.getElementById("totalOrders").innerHTML = count;
-      document.getElementById("orderTotal2").innerHTML = count;
+      const totalOrdersElement = document.getElementById("totalOrders");
+      const orderTotal2Element = document.getElementById("orderTotal2");
+      
+      if (totalOrdersElement) {
+        totalOrdersElement.innerHTML = count;
+      }
+      if (orderTotal2Element) {
+        orderTotal2Element.innerHTML = count;
+      }
     } catch (error) {
       console.error("Error retrieving orders count:", error);
     }
@@ -58,9 +76,13 @@ getTotalSales().then((totalSales) => {
   async function GetTotalCustomers() {
     try {
       const count = await getCustomerCount();
-      document.getElementById("totalCustomers").innerHTML = count;
+      const totalCustomersElement = document.getElementById("totalCustomers");
+      
+      if (totalCustomersElement) {
+        totalCustomersElement.innerHTML = count;
+      }
     } catch (error) {
-      console.error("Error retrieving orders count:", error);
+      console.error("Error retrieving customers count:", error);
     }
   }
  
@@ -137,11 +159,20 @@ async function getAboutToExpireProducts() {
     // Get the total number of products that are about to expire
     const totalAboutToExpireProducts = aboutToExpireProducts.length;
     console.log("Total about to expire products: " + totalAboutToExpireProducts);
-    document.getElementById("totalAboutToExpireProducts").innerHTML = totalAboutToExpireProducts;
+    
+    // Only update DOM element if it exists on the current page
+    const aboutToExpireElement = document.getElementById("totalAboutToExpireProducts");
+    if (aboutToExpireElement) {
+      aboutToExpireElement.innerHTML = totalAboutToExpireProducts;
+    }
    
   } catch (error) {
     console.error("Error fetching about to expire products: ", error);
-    alert("Error fetching about to expire products: " + error.message);
+    // Only show alert if we're on a page that should display this information
+    const aboutToExpireElement = document.getElementById("totalAboutToExpireProducts");
+    if (aboutToExpireElement) {
+      alert("Error fetching about to expire products: " + error.message);
+    }
   }
 }
 
@@ -178,12 +209,21 @@ async function getExpiredProducts() {
     // Get the total number of expired products
     const totalExpiredProducts = expiredProducts.length;
     console.log("Total expired products: " + totalExpiredProducts);
-    document.getElementById("totalExpiredProducts").innerHTML = totalExpiredProducts;
+    
+    // Only update DOM element if it exists on the current page
+    const expiredProductsElement = document.getElementById("totalExpiredProducts");
+    if (expiredProductsElement) {
+      expiredProductsElement.innerHTML = totalExpiredProducts;
+    }
 
    
   } catch (error) {
     console.error("Error fetching expired products: ", error);
-    alert("Error fetching expired products: " + error.message);
+    // Only show alert if we're on a page that should display this information
+    const expiredProductsElement = document.getElementById("totalExpiredProducts");
+    if (expiredProductsElement) {
+      alert("Error fetching expired products: " + error.message);
+    }
   }
 }
 
@@ -191,3 +231,6 @@ window.onload = function() {
   getAboutToExpireProducts();
   getExpiredProducts();
 }
+
+// Export Firebase instances for use in other modules
+export { app, auth, db };
