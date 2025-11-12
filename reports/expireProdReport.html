@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Expired Prods Report</title>
-  <link rel="shortcut icon" type="image/x-icon" href="../Assets/images/logos/site-logo2.png" />
+  <title>Expired Products Report</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/images/logos/site-logo2.png" />
   <!-- Libs CSS -->
   <link href="../assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../Assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
   <link href="../assets/libs/feather-webfont/dist/feather-icons.css" rel="stylesheet" />
   <link href="../assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet" />
   <!-- Theme CSS -->
@@ -182,7 +182,7 @@
     <!-- navbar vertical -->
     <!-- navbar -->
 
-    <nav class="navbar-vertical-nav d-none d-xl-block">
+   <nav class="navbar-vertical-nav d-none d-xl-block">
         <div class="navbar-vertical">
           <div id="navOverlay" class="nav-overlay" style="
                 position: absolute;
@@ -193,12 +193,12 @@
                 background-color: #fff;
                 z-index: 999;
               ">
-            <img style="margin-left: auto; margin-right: auto; display: block" src="Assets/images/icons/load.gif" alt=""
+            <img style="margin-left: auto; margin-right: auto; display: block" src="../assets/images/icons/load.gif" alt=""
               width="50" height="50" />
           </div>
           <div class="px-4 py-5">
-            <a href="/index.html" class="navbar-brand">
-              <img src="/assets/images/logos/pancea-logo.png" alt="" width="200" />
+            <a href="../index.html" class="navbar-brand">
+              <img src="../assets/images/logos/pancea-logo.png" alt="" width="200" />
             </a>
           </div>
           <div class="navbar-vertical-content flex-grow-1" data-simplebar="">
@@ -278,7 +278,7 @@
 
               <!-- Nav item -->
 
-              <li class="nav-item permissionUsers" id="">
+              <li class="nav-item permissionUsers" id="" hidden>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navUsers"
                   aria-expanded="false" aria-controls="navUsers">
                   <div class="d-flex align-items-center">
@@ -341,7 +341,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="nav-item permissionBlog" id="">
+              <li class="nav-item permissionBlog" id="" hidden>
                 <a class="nav-link" href="districts.html">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-map"></i></span>
@@ -349,7 +349,7 @@
                   </div>
                 </a>
               </li>
-              <li class="nav-item permissionBlog" id="">
+              <li class="nav-item permissionBlog" id="" hidden>
                 <a class="nav-link" href="promotions.html">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-money"></i></span>
@@ -681,7 +681,6 @@
 
   <!-- Theme JS -->
   <script src="../assets/js/theme.min.js"></script>
-
   <script src="../assets/js/libs/quill/dist/quill.min.js"></script>
   <script src="../assets/js/libs/quill/dist/quill.min.js"></script>
   <script src="../assets/js/vendors/editor.js"></script>
@@ -690,7 +689,7 @@
   <script type="module" src="../assets/js/libs/html2pdf.js"></script>
   <script type="module" src="../assets/js/libs/expiryReports.js"></script>
   <script src="../assets/js/libs/jspdf.js"></script>
-  <script type="module" src="assets/js/libs/roles.js"></script>
+   <script type="module" src="../assets/js/libs/roles.js" defer></script>
 </body>
 
 </html>

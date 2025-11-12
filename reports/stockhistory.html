@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stock History Report</title>
-  <link rel="shortcut icon" type="image/x-icon" href="../Assets/images/logos/site-logo2.png" x />
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/images/logos/site-logo2.png" />
   <!-- Libs CSS -->
   <link href="../assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../Assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
   <link href="../assets/libs/feather-webfont/dist/feather-icons.css" rel="stylesheet" />
   <link href="../assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet" />
   <!-- Theme CSS -->
@@ -181,7 +181,7 @@
   <div class="main-wrapper">
     <!-- navbar vertical -->
     <!-- navbar -->
-    <nav class="navbar-vertical-nav d-none d-xl-block">
+     <nav class="navbar-vertical-nav d-none d-xl-block">
         <div class="navbar-vertical">
           <div id="navOverlay" class="nav-overlay" style="
                 position: absolute;
@@ -192,12 +192,12 @@
                 background-color: #fff;
                 z-index: 999;
               ">
-            <img style="margin-left: auto; margin-right: auto; display: block" src="Assets/images/icons/load.gif" alt=""
+            <img style="margin-left: auto; margin-right: auto; display: block" src="../assets/images/icons/load.gif" alt=""
               width="50" height="50" />
           </div>
           <div class="px-4 py-5">
-            <a href="/index.html" class="navbar-brand">
-              <img src="/assets/images/logos/pancea-logo.png" alt="" width="200" />
+            <a href="../index.html" class="navbar-brand">
+              <img src="../assets/images/logos/pancea-logo.png" alt="" width="200" />
             </a>
           </div>
           <div class="navbar-vertical-content flex-grow-1" data-simplebar="">
@@ -277,7 +277,7 @@
 
               <!-- Nav item -->
 
-              <li class="nav-item permissionUsers" id="">
+              <li class="nav-item permissionUsers" id="" hidden>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navUsers"
                   aria-expanded="false" aria-controls="navUsers">
                   <div class="d-flex align-items-center">
@@ -340,7 +340,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="nav-item permissionBlog" id="">
+              <li class="nav-item permissionBlog" id="" hidden>
                 <a class="nav-link" href="districts.html">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-map"></i></span>
@@ -348,7 +348,7 @@
                   </div>
                 </a>
               </li>
-              <li class="nav-item permissionBlog" id="">
+              <li class="nav-item permissionBlog" id="" hidden>
                 <a class="nav-link" href="promotions.html">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-money"></i></span>
@@ -405,194 +405,195 @@
         </div>
       </nav>
 
-    <nav class="navbar-vertical-nav offcanvas offcanvas-start navbar-offcanvac" tabindex="-1" id="offcanvasExample">
-      <div class="navbar-vertical">
-        <div class="px-4 py-5 d-flex justify-content-between align-items-center">
-          <a href="/index.html" class="navbar-brand">
-            <img src="../assets/images/logos/site-logo2.png" alt="" />
-          </a>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+     <nav class="navbar-vertical-nav offcanvas offcanvas-start navbar-offcanvac" tabindex="-1" id="offcanvasExample">
+        <div class="navbar-vertical">
+          <div id="navOverlayMobile" class="nav-overlay" style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                z-index: 999;
+              ">
+            <img style="margin-left: auto; margin-right: auto; display: block" src="../assets/images/icons/load.gif" alt=""
+              width="50" height="50" />
+          </div>
+          <div class="px-4 py-5 d-flex justify-content-between align-items-center">
+            <a href="../index.html" class="navbar-brand">
+              <img src="../assets/images/logos/pancea-logo.png" alt="" width="200" />
+            </a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="navbar-vertical-content flex-grow-1" data-simplebar="">
+            <ul class="navbar-nav flex-column" id="sideNavbar">
+              <li class="nav-item">
+                <a class="nav-link active" href="main.html">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon"><i class="bi bi-house"></i></span>
+                    <span class="nav-link-text">Dashboard</span>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item mt-6 mb-3">
+                <span class="nav-label">Store Managements</span>
+              </li>
+
+              <li class="nav-item permissionSales" id="">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navSales"
+                  aria-expanded="false" aria-controls="navSales">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon"><i class="bi bi-cart"></i></span>
+                    <span class="nav-link-text">Sales</span>
+                  </div>
+                </a>
+                <div id="navSales" class="collapse" data-bs-parent="#sideNavbar">
+                  <ul class="nav flex-column">
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="order-list.html">Online Sales</a>
+                    </li>
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link active" href="pos.html">POS</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item permissionProducts" id="">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navProducts"
+                  aria-expanded="false" aria-controls="navProducts">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon"><i class="bi bi-bar-chart"></i></span>
+                    <span class="nav-link-text">Products</span>
+                  </div>
+                </a>
+                <div id="navProducts" class="collapse" data-bs-parent="#sideNavbar">
+                  <ul class="nav flex-column">
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="products.html">Products List</a>
+                    </li>
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="newProd.html">Add product</a>
+                    </li>
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="categories.html">Category List</a>
+                    </li>
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="add-category.html">Add New Category</a>
+                    </li>
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="reviews.html">Reviews</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- Nav item -->
+
+              <li class="nav-item permissionUsers" id="" hidden>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navUsers"
+                  aria-expanded="false" aria-controls="navUsers">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon"><i class="bi bi-people"></i></span>
+                    <span class="nav-link-text">Users</span>
+                  </div>
+                </a>
+                <div id="navUsers" class="collapse" data-bs-parent="#sideNavbar">
+                  <ul class="nav flex-column">
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="../NewUser.html">User List</a>
+                    </li>
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="../roles.html">Role List</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item permissionReports" id="">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navCategoriesOrders"
+                  aria-expanded="false" aria-controls="navCategoriesOrders">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon"><i class="bi bi-bar-chart"></i></span>
+                    <span class="nav-link-text">Reports</span>
+                  </div>
+                </a>
+                <div id="navCategoriesOrders" class="collapse" data-bs-parent="#sideNavbar">
+                  <ul class="nav flex-column">
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="../reports/salesReport.html">Sales Report</a>
+                    </li>
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="../reports/redundantReport.html">Redundant Products Report</a>
+                    </li>
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="../reports/stockreport.html">Stock Report</a>
+                    </li>
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="../reports/discountreport.html">Discounted Products Report</a>
+                    </li>
+                    <!-- Nav item -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="../reports/promoreport.html">Promo Sales Reports</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../reports/expireProdReport.html">Expired Products Report</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="nav-item permissionBlog" id="">
+                <a class="nav-link" href="blog.html">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon"><i class="bi bi-newspaper"></i></span>
+                    <span class="nav-link-text">Blog</span>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item permissionCareers" id="">
+                <a class="nav-link" href="careers.html">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon"><i class="bi bi-mortarboard"></i></span>
+                    <span class="nav-link-text">Careers</span>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item mt-6 mb-3">
+                <span class="nav-label">Our Apps</span>
+              </li>
+              <li class="nav-item permissionAddApp" id="">
+                <a class="nav-link" href="#!">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon"><i class="bi bi-apple"></i></span>
+                    <span class="nav-link-text">Apple Store</span>
+                  </div>
+                </a>
+              </li>
+
+              <li class="nav-item permissionAddApp2" id="">
+                <a class="nav-link" href="#!">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon"><i class="bi bi-google-play"></i></span>
+                    <span class="nav-link-text">Google Play Store</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="navbar-vertical-content flex-grow-1" data-simplebar="">
-          <ul class="navbar-nav flex-column" id="sideNavbar">
-            <li class="nav-item">
-              <a class="nav-link active" href="/main.html">
-                <div class="d-flex align-items-center">
-                  <span class="nav-link-icon"><i class="bi bi-house"></i></span>
-                  <span class="nav-link-text">Dashboard</span>
-                </div>
-              </a>
-            </li>
-            <li class="nav-item mt-6 mb-3">
-              <span class="nav-label">Store Managements</span>
-            </li>
-
-            <li class="nav-item" id="permissionSales">
-              <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navSales"
-                aria-expanded="false" aria-controls="navSales">
-                <div class="d-flex align-items-center">
-                  <span class="nav-link-icon"><i class="bi bi-cart"></i></span>
-                  <span class="nav-link-text">Sales</span>
-                </div>
-              </a>
-              <div id="navSales" class="collapse" data-bs-parent="#sideNavbar">
-                <ul class="nav flex-column">
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="/order-list.html">Online Sales</a>
-                  </li>
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link active" href="/pos.html">POS</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item" id="permissionProducts">
-              <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navProducts"
-                aria-expanded="false" aria-controls="navProducts">
-                <div class="d-flex align-items-center">
-                  <span class="nav-link-icon"><i class="bi bi-bar-chart"></i></span>
-                  <span class="nav-link-text">Products</span>
-                </div>
-              </a>
-              <div id="navProducts" class="collapse" data-bs-parent="#sideNavbar">
-                <ul class="nav flex-column">
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="/products.html">Products List</a>
-                  </li>
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="/newProd.html">Add product</a>
-                  </li>
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="/categories.html">Category List</a>
-                  </li>
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="/add-category.html">Add New Category</a>
-                  </li>
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="/reviews.html">Reviews</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <!-- Nav item -->
-
-            <li class="nav-item" id="permissionUsers">
-              <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navUsers"
-                aria-expanded="false" aria-controls="navUsers">
-                <div class="d-flex align-items-center">
-                  <span class="nav-link-icon"><i class="bi bi-people"></i></span>
-                  <span class="nav-link-text">Users</span>
-                </div>
-              </a>
-              <div id="navUsers" class="collapse" data-bs-parent="#sideNavbar">
-                <ul class="nav flex-column">
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="../NewUser.html">User List</a>
-                  </li>
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="../roles.html">Role List</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item" id="permissionReports">
-              <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navCategoriesOrders"
-                aria-expanded="false" aria-controls="navCategoriesOrders">
-                <div class="d-flex align-items-center">
-                  <span class="nav-link-icon"><i class="bi bi-bar-chart"></i></span>
-                  <span class="nav-link-text">Reports</span>
-                </div>
-              </a>
-              <div id="navCategoriesOrders" class="collapse" data-bs-parent="#sideNavbar">
-                <ul class="nav flex-column">
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="../reports/salesReport.html">Sales Report</a>
-                  </li>
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="../reports/bestSelling.html">Best Selling Products Report</a>
-                  </li>
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="../reports/redundantReport.html">Redundant Products Report</a>
-                  </li>
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="../reports/stockreport.html">Stock Report</a>
-                  </li>
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="../reports/discountreport.html">Discounted Products Report</a>
-                  </li>
-                  <!-- Nav item -->
-                  <li class="nav-item">
-                    <a class="nav-link" href="../reports/promoreport.html">Promo Sales Reports</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../reports/expireProdReport.html">Expired Products Report</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item" id="permissionBlog">
-              <a class="nav-link" href="/districts.html">
-                <div class="d-flex align-items-center">
-                  <span class="nav-link-icon"><i class="bi bi-map"></i></span>
-                  <span class="nav-link-text">Districts</span>
-                </div>
-              </a>
-            </li>
-            <li class="nav-item" id="permissionBlog">
-              <a class="nav-link" href="/blog.html">
-                <div class="d-flex align-items-center">
-                  <span class="nav-link-icon"><i class="bi bi-newspaper"></i></span>
-                  <span class="nav-link-text">Blog</span>
-                </div>
-              </a>
-            </li>
-            <li class="nav-item" id="permissionCareers">
-              <a class="nav-link" href="/careers.html">
-                <div class="d-flex align-items-center">
-                  <span class="nav-link-icon"><i class="bi bi-mortarboard"></i></span>
-                  <span class="nav-link-text">Careers</span>
-                </div>
-              </a>
-            </li>
-            <li class="nav-item mt-6 mb-3">
-              <span class="nav-label">Our Apps</span>
-            </li>
-            <li class="nav-item" id="permissionAddApp">
-              <a class="nav-link" href="#!">
-                <div class="d-flex align-items-center">
-                  <span class="nav-link-icon"><i class="bi bi-apple"></i></span>
-                  <span class="nav-link-text">Apple Store</span>
-                </div>
-              </a>
-            </li>
-
-            <li class="nav-item" id="permissionAddApp2">
-              <a class="nav-link" href="#!">
-                <div class="d-flex align-items-center">
-                  <span class="nav-link-icon"><i class="bi bi-google-play"></i></span>
-                  <span class="nav-link-text">Google Play Store</span>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+      </nav>
 
     <!-- main wrapper -->
     <main class="main-content-wrapper">

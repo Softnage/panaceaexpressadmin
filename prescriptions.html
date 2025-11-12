@@ -178,9 +178,23 @@
         </div>
       </div>
     </nav>
-    <div class="main-wrapper">
+   <div class="main-wrapper">
+      <!-- navbar vertical -->
+      <!-- navbar -->
       <nav class="navbar-vertical-nav d-none d-xl-block">
         <div class="navbar-vertical">
+          <div id="navOverlay" class="nav-overlay" style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                z-index: 999;
+              ">
+            <img style="margin-left: auto; margin-right: auto; display: block" src="Assets/images/icons/load.gif" alt=""
+              width="50" height="50" />
+          </div>
           <div class="px-4 py-5">
             <a href="/index.html" class="navbar-brand">
               <img src="/assets/images/logos/pancea-logo.png" alt="" width="200" />
@@ -200,28 +214,31 @@
                 <span class="nav-label">Store Managements</span>
               </li>
 
-              <li class="nav-item" id="permissionSales">
+              <li class="nav-item permissionSales" id="">
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navSales"
                   aria-expanded="false" aria-controls="navSales">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-cart"></i></span>
-                    <span class="nav-link-text">Sales</span>
+                    <span class="nav-link-text">Orders</span>
                   </div>
                 </a>
                 <div id="navSales" class="collapse" data-bs-parent="#sideNavbar">
                   <ul class="nav flex-column">
                     <!-- Nav item -->
                     <li class="nav-item">
-                      <a class="nav-link" href="order-list.html">Online Sales</a>
+                      <a class="nav-link" href="order-list.html">Orders list</a>
                     </li>
                     <!-- Nav item -->
-                    <li class="nav-item">
-                      <a class="nav-link active" href="pos.html">POS</a>
+                    <li class="nav-item" hidden>
+                      <a class="nav-link" href="pos.html">POS</a>
+                    </li>
+                    <li class="nav-item" id="permissionReturns" hidden>
+                      <a class="nav-link" href="salesreturn.html">Sales return(Refund)</a>
                     </li>
                   </ul>
                 </div>
               </li>
-              <li class="nav-item" id="permissionProducts">
+              <li class="nav-item permissionProducts" id="">
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navProducts"
                   aria-expanded="false" aria-controls="navProducts">
                   <div class="d-flex align-items-center">
@@ -234,6 +251,9 @@
                     <!-- Nav item -->
                     <li class="nav-item">
                       <a class="nav-link" href="products.html">Products List</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="priceupdate.html">Price update</a>
                     </li>
                     <!-- Nav item -->
                     <li class="nav-item">
@@ -257,7 +277,7 @@
 
               <!-- Nav item -->
 
-              <li class="nav-item" id="permissionUsers">
+              <li class="nav-item permissionUsers" id="" hidden>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navUsers"
                   aria-expanded="false" aria-controls="navUsers">
                   <div class="d-flex align-items-center">
@@ -278,7 +298,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="nav-item" id="permissionReports">
+              <li class="nav-item permissionReports" id="">
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navCategoriesOrders"
                   aria-expanded="false" aria-controls="navCategoriesOrders">
                   <div class="d-flex align-items-center">
@@ -291,6 +311,12 @@
                     <!-- Nav item -->
                     <li class="nav-item">
                       <a class="nav-link" href="../reports/salesReport.html">Sales Report</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../reports/bestSelling.html">Best Selling Products Report</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../reports/salesReturnReport.html">Sales Return Report</a>
                     </li>
                     <!-- Nav item -->
                     <li class="nav-item">
@@ -306,7 +332,7 @@
                     </li>
                     <!-- Nav item -->
                     <li class="nav-item">
-                      <a class="nav-link" href="../reports/promoreport.html">Promo Sales Reports</a>
+                      <a class="nav-link" href="../reports/stockhistory.html">Stock History Reports</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="../reports/expireProdReport.html">Expired Products Report</a>
@@ -314,8 +340,23 @@
                   </ul>
                 </div>
               </li>
-
-              <li class="nav-item" id="permissionBlog">
+              <li class="nav-item permissionBlog" id="" hidden>
+                <a class="nav-link" href="districts.html">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon"><i class="bi bi-map"></i></span>
+                    <span class="nav-link-text">Districts</span>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item permissionBlog" id="" hidden>
+                <a class="nav-link" href="promotions.html">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon"><i class="bi bi-money"></i></span>
+                    <span class="nav-link-text">Promotions</span>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item permissionBlog" id="">
                 <a class="nav-link" href="blog.html">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-newspaper"></i></span>
@@ -323,7 +364,7 @@
                   </div>
                 </a>
               </li>
-              <li class="nav-item" id="permissionCareers">
+              <li class="nav-item permissionCareers" id="">
                 <a class="nav-link" href="careers.html">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-mortarboard"></i></span>
@@ -331,10 +372,18 @@
                   </div>
                 </a>
               </li>
+              <li class="nav-item permissionCareers" id="">
+                <a class="nav-link" href="prescriptions.html">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-icon"><i class="bi bi-receipt"></i></span>
+                    <span class="nav-link-text">Prescriptions</span>
+                  </div>
+                </a>
+              </li>
               <li class="nav-item mt-6 mb-3">
                 <span class="nav-label">Our Apps</span>
               </li>
-              <li class="nav-item" id="permissionAddApp">
+              <li class="nav-item permissionAddApp" id="">
                 <a class="nav-link" href="#!">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-apple"></i></span>
@@ -343,7 +392,7 @@
                 </a>
               </li>
 
-              <li class="nav-item" id="permissionAddApp2">
+              <li class="nav-item permissionAddApp2" id="">
                 <a class="nav-link" href="#!">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-google-play"></i></span>
@@ -357,6 +406,18 @@
       </nav>
       <nav class="navbar-vertical-nav offcanvas offcanvas-start navbar-offcanvac" tabindex="-1" id="offcanvasExample">
         <div class="navbar-vertical">
+          <div id="navOverlayMobile" class="nav-overlay" style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                z-index: 999;
+              ">
+            <img style="margin-left: auto; margin-right: auto; display: block" src="Assets/images/icons/load.gif" alt=""
+              width="50" height="50" />
+          </div>
           <div class="px-4 py-5 d-flex justify-content-between align-items-center">
             <a href="/index.html" class="navbar-brand">
               <img src="/assets/images/logos/pancea-logo.png" alt="" width="200" />
@@ -377,7 +438,7 @@
                 <span class="nav-label">Store Managements</span>
               </li>
 
-              <li class="nav-item" id="permissionSales">
+              <li class="nav-item permissionSales" id="">
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navSales"
                   aria-expanded="false" aria-controls="navSales">
                   <div class="d-flex align-items-center">
@@ -398,7 +459,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="nav-item" id="permissionProducts">
+              <li class="nav-item permissionProducts" id="">
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navProducts"
                   aria-expanded="false" aria-controls="navProducts">
                   <div class="d-flex align-items-center">
@@ -434,7 +495,7 @@
 
               <!-- Nav item -->
 
-              <li class="nav-item" id="permissionUsers">
+              <li class="nav-item permissionUsers" id="" hidden>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navUsers"
                   aria-expanded="false" aria-controls="navUsers">
                   <div class="d-flex align-items-center">
@@ -455,7 +516,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="nav-item" id="permissionReports">
+              <li class="nav-item permissionReports" id="">
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navCategoriesOrders"
                   aria-expanded="false" aria-controls="navCategoriesOrders">
                   <div class="d-flex align-items-center">
@@ -492,7 +553,7 @@
                 </div>
               </li>
 
-              <li class="nav-item" id="permissionBlog">
+              <li class="nav-item permissionBlog" id="">
                 <a class="nav-link" href="blog.html">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-newspaper"></i></span>
@@ -500,7 +561,7 @@
                   </div>
                 </a>
               </li>
-              <li class="nav-item" id="permissionCareers">
+              <li class="nav-item permissionCareers" id="">
                 <a class="nav-link" href="careers.html">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-mortarboard"></i></span>
@@ -511,7 +572,7 @@
               <li class="nav-item mt-6 mb-3">
                 <span class="nav-label">Our Apps</span>
               </li>
-              <li class="nav-item" id="permissionAddApp">
+              <li class="nav-item permissionAddApp" id="">
                 <a class="nav-link" href="#!">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-apple"></i></span>
@@ -520,7 +581,7 @@
                 </a>
               </li>
 
-              <li class="nav-item" id="permissionAddApp2">
+              <li class="nav-item permissionAddApp2" id="">
                 <a class="nav-link" href="#!">
                   <div class="d-flex align-items-center">
                     <span class="nav-link-icon"><i class="bi bi-google-play"></i></span>
@@ -532,102 +593,282 @@
           </div>
         </div>
       </nav>
-      <!-- main -->
+      <!-- main wrapper -->
       <main class="main-content-wrapper">
-        <div class="container">
+        <section class="container">
+          <!-- row -->
           <div class="row mb-8">
             <div class="col-md-12">
-              <!-- page header -->
-              <div class="d-md-flex justify-content-between align-items-center">
-                <div>
-                  <h2>Prescriptions</h2>
-                  <!-- breacrumb -->
-                  <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0">
-                      <li class="breadcrumb-item">
-                        <a href="#" class="text-inherit">Dashboard</a>
-                      </li>
-                      <li class="breadcrumb-item active" aria-current="page">
-                        Prescriptions
-                      </li>
-                    </ol>
-                  </nav>
+              <!-- card -->
+              <div class="card bg-light border-0 rounded-4" style="
+                    background-image: url(assets/images/sliders/slider-2.jpg);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: right;
+                  ">
+                <div class="card-body p-lg-12">
+                  <h1>Welcome back! Panacea Online</h1>
+                  <p>Use this Dashboard to make admin changes</p>
+                  <a href="newProd.html" class="btn btn-primary" id="addNewProdBtn">Create Product</a>
+                  <a href="manual.html" class="btn btn-primary" id="viewManualBtn">View Manual</a>
+
                 </div>
-                <!-- button -->
               </div>
             </div>
           </div>
-          <!-- row -->
-          <div class="row">
-            <div class="col-xl-12 col-12 mb-5">
-              <!-- card -->
-              <div class="card h-100 card-lg">
-                <!-- card body -->
-                <div class="card-body p-0">
-                  <!-- table -->
-                  <div class="table-responsive">
-                    <table
-                      class="table table-centered table-hover text-nowrap table-borderless mb-0 table-with-checkbox"
-                      id="prescriptionsTable">
-                      <thead class="bg-light">
-                        <tr>
-                          <th>
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="checkAll" />
-                              <label class="form-check-label" for="checkAll"></label>
-                            </div>
-                          </th>
-                          <th>Image</th>
-                          <th>Customer</th>
-                          <th>Created On</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <div id="prodspinner" style="display: none; margin: auto">
-                          Getting Prescriptions Wait...
-                        </div>
-                      </tbody>
-                    </table>
-                    <!-- Modal -->
-                    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel"
-                      aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="detailsModalLabel">
-                              Prescription Details
-                            </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <img src="" id="modalImage" class="img-fluid" alt="Prescription Image" />
-                            <p>
-                              <strong>Customer Name:</strong>
-                              <span id="modalFullName"></span>
-                            </p>
-                            <p>
-                              <strong>Message:</strong>
-                              <span id="modalMessage"></span>
-                            </p>
-                          </div>
-                          <div class="modal-footer">
-                            <button id="downloadButton" type="button" class="btn btn-primary">
-                              Download
-                            </button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                              Close
-                            </button>
-                          </div>
-                        </div>
+          <!-- table -->
+          <div class="table-responsive-xl mb-6 mb-lg-0" id="earnings">
+            <div class="row flex-nowrap pb-3 pb-lg-0">
+              <div class="col-lg-4 col-12 mb-6">
+                <!-- card -->
+                <div class="card h-100 card-lg">
+                  <!-- card body -->
+                  <div class="card-body p-6">
+                    <!-- heading -->
+                    <div class="d-flex justify-content-between align-items-center mb-6">
+                      <div>
+                        <h4 class="mb-0 fs-5">Total Sales</h4>
                       </div>
+                      <div class="icon-shape icon-md bg-light-danger text-dark-danger rounded-circle">
+                        <i class="bi bi-cedi fs-5"></i>
+                      </div>
+                    </div>
+                    <!-- project number -->
+                    <div class="lh-1">
+                      <h1 class="mb-2 fw-bold fs-2" id="totalSales">
+                        GHS0.00
+                      </h1>
+                      <span>Total revenue</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-12 mb-6">
+                <!-- card -->
+                <div class="card h-100 card-lg">
+                  <!-- card body -->
+                  <div class="card-body p-6">
+                    <!-- heading -->
+                    <div class="d-flex justify-content-between align-items-center mb-6">
+                      <div>
+                        <h4 class="mb-0 fs-5">Orders</h4>
+                      </div>
+                      <div class="icon-shape icon-md bg-light-warning text-dark-warning rounded-circle">
+                        <i class="bi bi-cart fs-5"></i>
+                      </div>
+                    </div>
+                    <!-- project number -->
+                    <div class="lh-1">
+                      <h1 class="mb-2 fw-bold fs-2" id="totalOrders"></h1>
+                      <span>
+                        <span class="text-dark me-1">0+</span>
+                        New Sales
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-12 mb-6">
+                <!-- card -->
+                <div class="card h-100 card-lg">
+                  <!-- card body -->
+                  <div class="card-body p-6">
+                    <!-- heading -->
+                    <div class="d-flex justify-content-between align-items-center mb-6">
+                      <div>
+                        <h4 class="mb-0 fs-5">Customer</h4>
+                      </div>
+                      <div class="icon-shape icon-md bg-light-info text-dark-info rounded-circle">
+                        <i class="bi bi-people fs-5"></i>
+                      </div>
+                    </div>
+                    <!-- project number -->
+                    <div class="lh-1">
+                      <h1 class="mb-2 fw-bold fs-2" id="totalCustomers"></h1>
+                      <span>
+                        <span class="text-dark me-1">1+</span>
+                        new in 2 days
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+
+          <!-- row -->
+          <div class="row" id="revenue" style="display: none">
+            <div class="col-xl-8 col-lg-6 col-md-12 col-12 mb-6">
+              <!-- card -->
+              <div class="card h-100 card-lg">
+                <div class="card-body p-6">
+                  <!-- heading -->
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h3 class="mb-1 fs-5">Revenue</h3>
+                      <small>(+63%) than last year)</small>
+                    </div>
+                    <div>
+                      <!-- select option -->
+                      <select class="form-select">
+                        <option selected>2024</option>
+                        <option value="2023">2025</option>
+                        <option value="2024">2026</option>
+                        <option value="2025">2027</option>
+                        <option value="2025">2028</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- chart -->
+                  <div id="revenueChart" class="mt-6"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-12 mb-6">
+              <!-- card -->
+              <div class="card h-100 card-lg">
+                <!-- card body -->
+                <div class="card-body p-6">
+                  <!-- heading -->
+                  <h3 class="mb-0 fs-5">Total Sales</h3>
+                  <div id="totalSale" class="mt-6 d-flex justify-content-center"></div>
+                  <div class="mt-4">
+                    <!-- list -->
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor"
+                          class="bi bi-circle-fill text-danger" viewBox="0 0 16 16">
+                          <circle cx="8" cy="8" r="8" />
+                        </svg>
+                        <span class="ms-1">
+                          <span class="text-dark" id="orderTotal2">Order GHS0.00</span>
+                          <span id="orderPer"> (0%)</span>
+                        </span>
+                      </li>
+                      <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor"
+                          class="bi bi-circle-fill text-info" viewBox="0 0 16 16">
+                          <circle cx="8" cy="8" r="8" />
+                        </svg>
+                        <span class="ms-1">
+                          <span class="text-dark" id="incomeTotal2">Income GHS1.00</span>
+                          <span id="incomePer"> (0%)</span>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- row -->
+          <div class="row" id="salesoverview">
+            <div class="col-lg-4 col-12 mb-6" hidden>
+              <!-- card -->
+              <div class="card h-100 card-lg">
+                <!-- card body -->
+                <div class="card-body p-6">
+                  <!-- heading -->
+                  <div class="d-flex justify-content-between align-items-center mb-6">
+                    <div>
+                      <h4 class="mb-0 fs-5">Expired Products</h4>
+                    </div>
+                    <div class="icon-shape icon-md bg-light-danger text-dark-danger rounded-circle">
+                      <i class="bi-hourglass-bottom fs-5"></i>
+                    </div>
+                  </div>
+                  <!-- project number -->
+                  <div class="lh-1">
+                    <h1 class="mb-2 fw-bold fs-2" id="totalExpiredProducts">
+                      0
+                    </h1>
+                    <span><a href="/reports/expireProdReport.html">View <i class="bi-eye"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-12 mb-6">
+              <!-- card -->
+              <div class="card h-100 card-lg">
+                <!-- card body -->
+                <div class="card-body p-6">
+                  <!-- heading -->
+                  <div class="d-flex justify-content-between align-items-center mb-6">
+                    <div>
+                      <h4 class="mb-0 fs-5">3 Months To Expire</h4>
+                    </div>
+                    <div class="icon-shape icon-md bg-light-warning text-dark-warning rounded-circle">
+                      <i class="bi bi-clock-history fs-5"></i>
+                    </div>
+                  </div>
+                  <!-- project number -->
+                  <div class="lh-1">
+                    <h1 class="mb-2 fw-bold fs-2" id="totalAboutToExpireProducts">
+                      0
+                    </h1>
+                    <span><a href="/reports/expireProdReport.html">View <i class="bi-eye"></i></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- row -->
+          <div class="row" id="orders">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-12 mb-6">
+              <div class="card h-100 card-lg">
+                <!-- heading -->
+                <div class="p-6">
+                  <h3 class="mb-0 fs-5">Recent Order</h3>
+                </div>
+                <div class="card-body p-0">
+                  <!-- table -->
+                  <div class="table-responsive">
+                    <table class="table table-centered table-borderless text-nowrap table-hover">
+                      <thead class="bg-light">
+                        <tr>
+                          <th scope="col">Order Number</th>
+                          <th scope="col">Product Name</th>
+                          <th scope="col">Order Date</th>
+                          <th scope="col">Price</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>#FC0005</td>
+                          <td>B.P Monitor</td>
+                          <td>28 March 2024</td>
+                          <td>GHS 18.00</td>
+                          <td>
+                            <span class="badge bg-light-primary text-dark-primary">Shipped</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>#FC0004</td>
+                          <td>SebaMed</td>
+                          <td>24 March 2024</td>
+                          <td>GHS24.00</td>
+                          <td>
+                            <span class="badge bg-light-warning text-dark-warning">Pending</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>#FC0003</td>
+                          <td>Joint Relief</td>
+                          <td>8 Feb 2024</td>
+                          <td>GHS 9.00</td>
+                          <td>
+                            <span class="badge bg-light-danger text-dark-danger">Cancel</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   </div>

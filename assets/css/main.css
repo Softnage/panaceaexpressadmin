@@ -12,7 +12,9 @@
   box-shadow: 2px 2px 3px #999;
   z-index: 100;
 }
-
+.hidden{
+  display:none;
+}
 .my-float {
   margin-top: 16px;
 }

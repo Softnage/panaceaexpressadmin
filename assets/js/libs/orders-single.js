@@ -288,11 +288,11 @@ async function SendSMS(orderId, total,destination) {
 
   const source = "Panacea";
   const school_id = "29";
-  const adminPhone = "233542423472";
+  const adminPhone = ["233531007842","233552837378"];
   const apiKey = "jy4ExUFh31VEup8IGkhuCdxls212TIVch0QOUv6Yw2C1r";
 
   // Compose your SMS message
-  const message = `Your Order #${orderId} of total GHS ${total} has been received successfully.A representative will get in touch with you.You can also call us on ${adminPhone} Thank you!`;
+  const message = `Your Order #${orderId} of total GHS ${total} has been received successfully.A representative will get in touch with you.You can also call us on 233531007842 or 233552837378. Thank you!`;
 
   // Build query parameters
   const params = new URLSearchParams({
